@@ -20,14 +20,14 @@ A simple and fast Bash script to automatically install, configure, and start an 
 Run this single command inside your **Termux** app:
 
 ```bash
-pkg install git -y && git clone [https://github.com/Pxi9I/sshfortermux.git](https://github.com/Pxi9I/sshfortermux.git) && cd sshfortermux && chmod +x sshtermux.sh && ./sshtermux.sh
-
-```markdown
+pkg install git -y && git clone https://github.com/Pxi9I/sshfortermux.git && cd sshfortermux && chmod +x sshtermux.sh && ./sshtermux.sh
+```
 > **Or if you prefer step-by-step:**
 
 ```bash
 pkg install git -y
-git clone [https://github.com/Pxi9I/sshfortermux.git](https://github.com/Pxi9I/sshfortermux.git)
+git clone https://github.com/Pxi9I/sshfortermux.git
 cd sshfortermux
 chmod +x sshtermux.sh
 ./sshtermux.sh
+```
