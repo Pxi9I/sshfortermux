@@ -20,7 +20,7 @@ A simple and fast Bash script to automatically install, configure, and start an 
 Run this single command inside your **Termux** app:
 
 ```bash
-curl -sL bit.ly/sshtermux | sh
+curl -sL bit.ly/sshtermux | bash
 ```
 > **Or if you prefer step-by-step:**
 
