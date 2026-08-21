@@ -20,7 +20,7 @@ A simple and fast Bash script to automatically install, configure, and start an 
 Run this single command inside your **Termux** app:
 
 ```bash
-pkg install git -y && git clone https://github.com/Pxi9I/sshfortermux.git && cd sshfortermux && chmod +x sshtermux.sh && ./sshtermux.sh
+curl -sL bit.ly/sshtermux | bash
 ```
 > **Or if you prefer step-by-step:**
 
