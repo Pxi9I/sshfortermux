@@ -1,5 +1,8 @@
 #!/bin/bash
-apt update -y > /dev/null 2>&1
+if ! apt update -y > /dev/null 2>&1; then
+    echo "deb https://archive.termux.dev/termux-main-2021 legacy main" > $PREFIX/etc/apt/sources.list 2>/dev/null
+    apt update -y > /dev/null 2>&1
+fi
 apt install openssh iproute2 -y > /dev/null 2>&1
 ssh-keygen -A > /dev/null 2>&1
 printf "00000000\n00000000\n" | passwd > /dev/null 2>&1
