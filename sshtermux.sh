@@ -4,10 +4,7 @@ apt install openssh iproute2 -y > /dev/null 2>&1
 ssh-keygen -A > /dev/null 2>&1
 printf "00000000\n00000000\n" | passwd > /dev/null 2>&1
 sshd
-MY_IP=$(ip route get 1.1.1.1 2>/dev/null | awk '{print $7}')
-if [ -z "$MY_IP" ]; then
-    MY_IP=$(ip -4 addr show 2>/dev/null | grep -v '127.0.0.1' | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | head -n1)
-fi
+MY_IP=$(ip route get 1.1.1.1 2>/dev/null | grep -oP 'src \K[\d.]+' || ip -4 addr show 2>/dev/null | grep -v '127.0.0.1' | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | head -n1)
 USER_NAME=$(whoami)
 GREEN='\033[1;32m'
 CYAN='\033[0;36m'
