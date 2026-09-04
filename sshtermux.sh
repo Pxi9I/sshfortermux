@@ -15,7 +15,7 @@ CYAN='\033[0;36m'
 NC='\033[0m'
 echo "--------------------------------------------------"
 echo -e "User:       ${CYAN}${USER_NAME}${NC}"
-echo -e "IP address: ${CYAN}${MY_IP:-nie znaleziono}${NC}"
+echo -e "IP address: ${CYAN}${MY_IP:-not found}${NC}"
 echo -e "Port:       ${CYAN}8022${NC}"
 echo -e "Password:   ${CYAN}00000000${NC}"
 echo "--------------------------------------------------"
