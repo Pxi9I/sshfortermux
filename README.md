@@ -11,7 +11,9 @@ A Bash script that automatically installs, configures, and starts an OpenSSH ser
 - Generates SSH host keys (`ssh-keygen -A`)
 - Sets the default user password to `00000000`
 - Starts the SSH server (`sshd`)
+- Installs the `sshtermux` command for restarting the server later
 - Displays connection details: username, local IP address, port (8022), and a ready-to-use SSH command
+- Installs the `sshtermux` command, which restarts the server and displays the connection details without updating or reinstalling anything
 
 ---
 
@@ -37,7 +39,29 @@ chmod +x sshtermux.sh
 
 ---
 
+## Restarting the Server
+
+After the initial installation, the `sshtermux` command is available in Termux. Use it to start the SSH server again (for example, after restarting Termux) and display the connection details. It does not update packages or reinstall anything:
+
+```bash
+sshtermux
+```
+
+If the server is already running, the command only displays the connection details.
+
+---
+
 ## Usage
+
+### Restarting the SSH server
+
+After the initial installation, the `sshtermux` command is available in Termux. Use it whenever you need to start the SSH server again (for example, after restarting Termux):
+
+```bash
+sshtermux
+```
+
+The command starts `sshd` if it is not already running and displays the connection details. It does not update packages, reinstall OpenSSH, or change the password.
 
 ### Connecting from another Termux device
 
