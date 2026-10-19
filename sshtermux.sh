@@ -3,7 +3,12 @@ apt update -y > /dev/null 2>&1
 apt install openssh iproute2 -y > /dev/null 2>&1
 ssh-keygen -A > /dev/null 2>&1
 printf "00000000\n00000000\n" | passwd > /dev/null 2>&1
-sshd
+
+BIN_DIR="${PREFIX:-/data/data/com.termux/files/usr}/bin"
+cat > "$BIN_DIR/sshtermux" << 'EOF'
+#!/bin/bash
+pgrep -x sshd > /dev/null 2>&1 || sshd
+
 MY_IP=$(ifconfig 2>/dev/null | grep -E 'inet ' | grep -v '127.0.0.1' | awk '{print $2}' | sed 's/addr://' | head -n1)
 
 if [ -z "$MY_IP" ]; then
@@ -22,3 +27,8 @@ echo "--------------------------------------------------"
 echo "Command to connect:"
 echo -e "${GREEN}ssh ${USER_NAME}@${MY_IP:-<IP>} -p 8022${NC}"
 echo "--------------------------------------------------"
+EOF
+chmod +x "$BIN_DIR/sshtermux"
+
+"$BIN_DIR/sshtermux"
+echo "Next time, just run: sshtermux"
