@@ -13,6 +13,7 @@ A Bash script that automatically installs, configures, and starts an OpenSSH ser
 - Starts the SSH server (`sshd`)
 - Installs the `sshtermux` command for restarting the server later
 - Displays connection details: username, local IP address, port (8022), and a ready-to-use SSH command
+- Reminds you at the end of the setup that the default password should be changed
 - Installs the `sshtermux` command, which restarts the server and displays the connection details without updating or reinstalling anything
 
 ---
@@ -48,6 +49,8 @@ sshtermux
 ```
 
 If the server is already running, the command only displays the connection details.
+
+The connection details do not include the password. The default password (`00000000`) is set only during installation and announced at the end of the setup. Change it afterwards with `passwd`.
 
 ---
 
