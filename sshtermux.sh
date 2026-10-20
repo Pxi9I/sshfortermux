@@ -4,6 +4,7 @@ apt install openssh iproute2 -y > /dev/null 2>&1
 ssh-keygen -A > /dev/null 2>&1
 printf "00000000\n00000000\n" | passwd > /dev/null 2>&1
 
+# Install the "sshtermux" command (starts sshd and prints connection details)
 BIN_DIR="${PREFIX:-/data/data/com.termux/files/usr}/bin"
 cat > "$BIN_DIR/sshtermux" << 'EOF'
 #!/bin/bash
@@ -22,7 +23,6 @@ echo "--------------------------------------------------"
 echo -e "User:       ${CYAN}${USER_NAME}${NC}"
 echo -e "IP address: ${CYAN}${MY_IP:-not found}${NC}"
 echo -e "Port:       ${CYAN}8022${NC}"
-echo -e "Password:   ${CYAN}00000000${NC}"
 echo "--------------------------------------------------"
 echo "Command to connect:"
 echo -e "${GREEN}ssh ${USER_NAME}@${MY_IP:-<IP>} -p 8022${NC}"
@@ -30,5 +30,9 @@ echo "--------------------------------------------------"
 EOF
 chmod +x "$BIN_DIR/sshtermux"
 
+# Start the server and show connection details
 "$BIN_DIR/sshtermux"
+
+echo "The password has been set to: 00000000"
+echo "Change it now with: passwd"
 echo "Next time, just run: sshtermux"
